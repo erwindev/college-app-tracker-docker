@@ -1,23 +1,25 @@
-postgres:
-  container_name: college-app-tracker-db
-  image: ealberto/college-app-tracker-db:latest
-  ports:
-    - "55432:5432"
-  env_file: college_tracker.env
+version: '2'
+services:
+  college-app-tracker-db:
+    container_name: college-app-tracker-db
+    image: ealberto/college-app-tracker-db:latest
+    ports:
+      - "55432:5432"
+    env_file: college_tracker.env
 
-college-app-tracker:
-  container_name: college-app-tracker
-  image: ealberto/college-app-tracker:latest
-  links:
-    - postgres:college-app-tracker-db
-  ports:
-    - "8080:8080"
-  env_file: college_tracker.env
+  college-app-tracker:
+    container_name: college-app-tracker
+    image: ealberto/college-app-tracker:latest
+    links:
+      - college-app-tracker-db:college-app-tracker-db
+    ports:
+      - "8080:8080"
+    env_file: college_tracker.env
 
-college-app-tracker-ui:
-  container_name: college-app-tracker-ui
-  image: ealberto/college-app-tracker-ui:latest
-  links:
-    - college-app-tracker:college-app-tracker
-  ports:
-    - "80:80"
+  college-app-tracker-ui:
+    container_name: college-app-tracker-ui
+    image: ealberto/college-app-tracker-ui:latest
+    links:
+      - college-app-tracker:college-app-tracker
+    ports:
+      - "80:80"
