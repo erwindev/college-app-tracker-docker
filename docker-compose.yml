@@ -2,10 +2,11 @@ version: '2'
 services:
   college-app-tracker-db:
     container_name: college-app-tracker-db
-    image: ealberto/college-app-tracker-db:latest
+    image: postgres:9.6.3-alpine
     ports:
       - "55432:5432"
-    env_file: college_tracker.env
+    volumes:
+      - "./init_db.sql:/docker-entrypoint-initdb.d/init_db.sql"
 
   college-app-tracker:
     container_name: college-app-tracker
@@ -19,7 +20,5 @@ services:
   college-app-tracker-ui:
     container_name: college-app-tracker-ui
     image: ealberto/college-app-tracker-ui:latest
-    links:
-      - college-app-tracker:college-app-tracker
     ports:
       - "80:80"

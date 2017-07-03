@@ -28,3 +28,10 @@ password=tr@ck3r_u53r
 You can access the API documentation [here](http://localhost:8080/swagger-ui.html).
 ### College Application Tracker
 You can access the application at [http://localhost](http://localhost:8080/swagger-ui.html).
+
+## Shutting down the application
+```
+$ docker-compose down
+```
+
+This will stop and remove the container as well as any network, images and volumes associated with this application.
