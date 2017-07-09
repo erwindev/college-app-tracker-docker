@@ -1,0 +1,34 @@
+version: '3'
+services:
+  college-app-tracker-db:
+    image: postgres:9.6.3-alpine
+    ports:
+      - "55432:5432"
+    networks:
+      - collegenet
+    volumes:
+      - "./init_db.sql:/docker-entrypoint-initdb.d/init_db.sql"
+
+  college-app-tracker:
+    image: ealberto/college-app-tracker:latest
+    ports:
+      - "8080:8080"
+    env_file: college_tracker.env
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: ".5"
+          memory: 500M
+      restart_policy:
+        condition: on-failure
+    networks:
+      - collegenet
+
+  college-app-tracker-ui:
+    image: ealberto/college-app-tracker-ui:latest
+    ports:
+      - "80:80"
+
+networks:
+  collegenet:
