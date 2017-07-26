@@ -59,7 +59,7 @@ The first one (college01) will act as the manager.  It is the one that will exec
 ```
 $ docker-machine ssh college01 "docker swarm init --advertise-addr <college01 IP>:2377"
 ```
-This command will spit out something the join command that you need to run to join workers in the swarm.
+This command will spit out a join command that you need to run to join workers in the swarm.
 
 ### Join college02 in the swarm
 ```
