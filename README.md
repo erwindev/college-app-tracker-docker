@@ -84,7 +84,7 @@ $ docker-machine ssh college01 "docker stack deploy -c docker-compose-swarm.yml 
 If ssh to the instances and perform `docker ps`, you will see the instances that are running in those machines.
 
 ### Accessing the application
-To access the application, you can either go to http://<ip address of college01/college02>.  
+To access the application, you can either go to http://<ip address of college01/college02>:4200.  
 
 ### Install a lighweight container management UI
 To view all of your container and services in a nice looking user interface, we will install [Portainer](http://portainer.io).
@@ -100,7 +100,7 @@ docker@college01:~$ docker service create \
     portainer/portainer \
     -H unix:///var/run/docker.sock
 ```
-You should be able to pull up Portainer at http://<IP of college01>:9000
+You should be able to pull up Portainer at http://<ip of college01>:9000
 
 ### Cleaning up
 ```
