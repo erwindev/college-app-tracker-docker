@@ -21,4 +21,4 @@ services:
     container_name: college-app-tracker-ui
     image: ealberto/college-app-tracker-ui:latest
     ports:
-      - "80:80"
+      - "80:4200"

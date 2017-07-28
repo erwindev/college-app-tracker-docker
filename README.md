@@ -3,7 +3,7 @@
 This project launches the different components of College Application Tracker.  Currently, College Application Tracker has three components that need to be started for the application to work.  They are:
 
 * Postgres Database with a "college" db instance
-* Nginx webserver that hosts the Angular2 artifacts
+* Node.js Application to deliver the Angular2 application
 * A Spring Boot application
 
 ## Starting the application
@@ -14,7 +14,7 @@ After you've installed Docker Machine, you can do the following.
 $ docker-compose up
 ```
 
-This will start the Postgres database with a "college" db instance listening in port 55432, the nginx webserver listening in port 80 and the Spring Boot application listening in port 8080.
+This will start the Postgres database with a "college" db instance listening in port 55432, the Node.js application listening in port 4200 and the Spring Boot application listening in port 8080.
 
 ## Accessing the application
 ### PostgreSQL

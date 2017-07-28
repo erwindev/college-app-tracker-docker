@@ -1,4 +1,4 @@
-version: '3'
+o26kversion: '3'
 services:
   college-app-tracker-db:
     image: postgres:9.6.3-alpine
@@ -28,7 +28,7 @@ services:
   college-app-tracker-ui:
     image: ealberto/college-app-tracker-ui:latest
     ports:
-      - "80:80"
+      - "4200:4200"
 
 networks:
   collegenet:
