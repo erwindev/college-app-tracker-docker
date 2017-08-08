@@ -1,4 +1,4 @@
-o26kversion: '3'
+version: '3'
 services:
   college-app-tracker-db:
     image: postgres:9.6.3-alpine
