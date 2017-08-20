@@ -1,0 +1,22 @@
+---
+- name: Copy deployment files to swarm leader
+  hosts: swarm_leader
+  remote_user: ubuntu
+  gather_facts: yes
+  become: yes
+  tasks:
+    - copy:
+        src: "{{ playbook_dir }}/{{ item }}"
+        dest: "/home/ubuntu/{{ item }}"
+      with_items:
+        - docker-compose-swarm.yml
+        - init_db.sql
+        - college_tracker.env
+
+- name: Deploy application
+  hosts: swarm_leader
+  remote_user: ubuntu
+  gather_facts: yes
+  become: yes
+  tasks:
+    - command: "docker stack deploy -c docker-compose-swarm.yml erwindev"     
