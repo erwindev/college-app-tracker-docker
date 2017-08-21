@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage ('Compile'){
+        stage ('Deploy'){
             steps{
                 sh 'ansible-playbook -i inventory deploy_app.yml'
             }
