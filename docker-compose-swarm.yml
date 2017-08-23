@@ -25,5 +25,10 @@ services:
     networks:
       - collegenet
 
+  college-app-tracker-ui:
+    image: ealberto/college-app-tracker-ui:latest
+    ports:
+      - "4200:4200"      
+
 networks:
   collegenet:
