@@ -4,7 +4,10 @@ pipeline {
     stages {
         stage ('Deploy'){
             steps{
-                sh 'ansible-playbook -i inventory deploy_app.yml'
+                ansiblePlaybook(
+                	inventory: '/home/ubuntu/inventory',
+                	playbook: 'deploy_app.yml'
+                )
             }
         }
     }
