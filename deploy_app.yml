@@ -10,7 +10,7 @@
         dest: "/home/ubuntu/{{ item }}"
       with_items:
         - docker-compose-swarm.yml
-        - docker-compose-stack-monitoring-swarm.yml
+        - docker-compose-stack-monitoring.yml
         - init_db.sql
         - college_tracker.env
 
