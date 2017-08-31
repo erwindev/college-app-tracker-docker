@@ -6,10 +6,11 @@
   become: yes
   tasks:
     - copy:
-        src: "{{ playbook_dir }}/{{ item }}"
+        src: "{{ playbook_dir }}/swarm/{{ item }}"
         dest: "/home/ubuntu/{{ item }}"
       with_items:
         - docker-compose-swarm.yml
+        - docker-compose-stack-monitoring-swarm.yml
         - init_db.sql
         - college_tracker.env
 
