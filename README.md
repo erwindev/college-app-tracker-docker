@@ -11,6 +11,7 @@ To start the application, make sure you have docker installed in your machine.  
 
 After you've installed Docker Machine, you can do the following.
 ```
+$ cd compose
 $ docker-compose up
 ```
 
@@ -31,6 +32,7 @@ You can access the application at [http://localhost](http://localhost:8080/swagg
 
 ## Shutting down the application
 ```
+$ cd compose
 $ docker-compose down
 ```
 
@@ -76,6 +78,7 @@ You will see that college01 is tagged as the leader.  college02 joined the swarm
 ### Deploy College App Tracker to the Swarm
 In order to deploy the application to the swarm, we need to run docker compose file in college01 (the leader).  To do this, we need to first copy the files necessary to run the application.
 ```
+$ cd swarm
 $ docker-machine scp docker-compose-swarm.yml college01:~
 $ docker-machine scp college_tracker.env college01:~
 $ docker-machine scp init_db.sql college01:~
